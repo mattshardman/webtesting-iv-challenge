@@ -81,7 +81,7 @@ describe('server', () => {
                     const users = await Users.get();
                     const userLength = users.length;
                     expect(userLength).toBe(1);
-                })
+                });
         })
     })
 });

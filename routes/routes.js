@@ -16,4 +16,10 @@ routes.post('/api/users', async (req, res) => {
     res.status(201).json(users);
 });
 
+routes.delete('/api/users/:id', async (req, res) => {
+    const { id } = req.params;
+    const users = await Users.remove(id);
+    res.status(201).json(users);
+});
+
 module.exports = routes;
