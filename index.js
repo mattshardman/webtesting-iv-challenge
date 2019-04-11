@@ -1,8 +1,3 @@
-const express = require('express');
-const app = express();
+const server = require('./server/server');
 
-app.use(express.json());
-
-app.use(require('./routes/routes'));
-
-app.listen(8000);
+server.listen(8000);
