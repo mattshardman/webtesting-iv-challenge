@@ -71,4 +71,17 @@ describe('server', () => {
                 });
         });
     });
+
+    describe('/DELETE /api/users',() => {
+        it('removes a user from the db', () => {
+            return request(routes)
+                .delete('/api/users/2')
+                .expect(201)
+                .then(async r => {
+                    const users = await Users.get();
+                    const userLength = users.length;
+                    expect(userLength).toBe(1);
+                })
+        })
+    })
 });
