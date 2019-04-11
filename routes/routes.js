@@ -7,8 +7,13 @@ routes.get('/', (req, res) => {
 });
 
 routes.get('/api/users', async (req, res) => {
-    const users = await Users.getUsers();
+    const users = await Users.get();
     res.status(200).json(users);
+});
+
+routes.post('/api/users', async (req, res) => {
+    const users = await Users.create(req.body);
+    res.status(201).json(users);
 });
 
 module.exports = routes;
